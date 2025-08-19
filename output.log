@@ -1,0 +1,1879 @@
+# from tvm.script import ir as I
+# from tvm.script import tir as T
+# from tvm.script import relax as R
+
+@I.ir_module
+class Module:
+    @T.prim_func(private=True)
+    def add(lv: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32"), lv1: T.Buffer((T.int64(1), T.int64(32), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(32), T.int64(320), T.int64(320)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv[v_ax0, v_ax1, v_ax2, v_ax3], lv1[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv[v_ax0, v_ax1, v_ax2, v_ax3] + lv1[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add1(lv4: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32"), lv5: T.Buffer((T.int64(1), T.int64(64), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv4[v_ax0, v_ax1, v_ax2, v_ax3], lv5[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv4[v_ax0, v_ax1, v_ax2, v_ax3] + lv5[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add10(lv109: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32"), lv110: T.Buffer((T.int64(1), T.int64(512), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv109[v_ax0, v_ax1, v_ax2, v_ax3], lv110[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv109[v_ax0, v_ax1, v_ax2, v_ax3] + lv110[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add11(lv113: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv114: T.Buffer((T.int64(1), T.int64(256), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv113[v_ax0, v_ax1, v_ax2, v_ax3], lv114[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv113[v_ax0, v_ax1, v_ax2, v_ax3] + lv114[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add12(lv116: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv124: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv116[v_ax0, v_ax1, v_ax2, v_ax3], lv124[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv116[v_ax0, v_ax1, v_ax2, v_ax3] + lv124[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def add13(lv253: T.Buffer((T.int64(1), T.int64(123), T.int64(80), T.int64(80)), "float32"), lv254: T.Buffer((T.int64(1), T.int64(123), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(123), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(123), T.int64(80), T.int64(80)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv253[v_ax0, v_ax1, v_ax2, v_ax3], lv254[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv253[v_ax0, v_ax1, v_ax2, v_ax3] + lv254[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add14(lv276: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), lv265: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv276[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv265[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv276[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] + lv265[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def add15(lv285: T.Buffer((T.int64(1), T.int64(123), T.int64(40), T.int64(40)), "float32"), lv286: T.Buffer((T.int64(1), T.int64(123), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(123), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(123), T.int64(40), T.int64(40)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv285[v_ax0, v_ax1, v_ax2, v_ax3], lv286[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv285[v_ax0, v_ax1, v_ax2, v_ax3] + lv286[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add16(lv308: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), lv297: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv308[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv297[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv308[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] + lv297[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def add17(lv317: T.Buffer((T.int64(1), T.int64(123), T.int64(20), T.int64(20)), "float32"), lv318: T.Buffer((T.int64(1), T.int64(123), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(123), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(123), T.int64(20), T.int64(20)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv317[v_ax0, v_ax1, v_ax2, v_ax3], lv318[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv317[v_ax0, v_ax1, v_ax2, v_ax3] + lv318[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add18(lv340: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), lv329: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv340[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv329[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv340[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] + lv329[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def add2(lv8: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), lv9: T.Buffer((T.int64(1), T.int64(32), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv8[v_ax0, v_ax1, v_ax2, v_ax3], lv9[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv8[v_ax0, v_ax1, v_ax2, v_ax3] + lv9[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add3(lv11: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), lv19: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv11[v_ax0, v_ax1, v_ax2, v_ax3], lv19[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv11[v_ax0, v_ax1, v_ax2, v_ax3] + lv19[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def add4(lv30: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), lv31: T.Buffer((T.int64(1), T.int64(128), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv30[v_ax0, v_ax1, v_ax2, v_ax3], lv31[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv30[v_ax0, v_ax1, v_ax2, v_ax3] + lv31[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add5(lv34: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), lv35: T.Buffer((T.int64(1), T.int64(64), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv34[v_ax0, v_ax1, v_ax2, v_ax3], lv35[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv34[v_ax0, v_ax1, v_ax2, v_ax3] + lv35[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add6(lv37: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), lv45: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv37[v_ax0, v_ax1, v_ax2, v_ax3], lv45[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv37[v_ax0, v_ax1, v_ax2, v_ax3] + lv45[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def add7(lv65: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), lv66: T.Buffer((T.int64(1), T.int64(256), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv65[v_ax0, v_ax1, v_ax2, v_ax3], lv66[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv65[v_ax0, v_ax1, v_ax2, v_ax3] + lv66[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add8(lv69: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), lv70: T.Buffer((T.int64(1), T.int64(128), T.int64(1), T.int64(1)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv69[v_ax0, v_ax1, v_ax2, v_ax3], lv70[v_ax0, v_ax1, T.int64(0), T.int64(0)])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv69[v_ax0, v_ax1, v_ax2, v_ax3] + lv70[v_ax0, v_ax1, T.int64(0), T.int64(0)]
+
+    @T.prim_func(private=True)
+    def add9(lv72: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), lv80: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), T_add: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40)):
+            with T.block("T_add"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv72[v_ax0, v_ax1, v_ax2, v_ax3], lv80[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_add[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_add[v_ax0, v_ax1, v_ax2, v_ax3] = lv72[v_ax0, v_ax1, v_ax2, v_ax3] + lv80[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def broadcast_to(lv263: T.Buffer((T.int64(80), T.int64(80), T.int64(2)), "float32"), T_broadcast_to: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_broadcast_to"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv263[v_ax2, v_ax3, v_ax4])
+                T.writes(T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv263[v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def broadcast_to2(lv295: T.Buffer((T.int64(40), T.int64(40), T.int64(2)), "float32"), T_broadcast_to: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_broadcast_to"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv295[v_ax2, v_ax3, v_ax4])
+                T.writes(T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv295[v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def broadcast_to4(lv327: T.Buffer((T.int64(20), T.int64(20), T.int64(2)), "float32"), T_broadcast_to: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_broadcast_to"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv327[v_ax2, v_ax3, v_ax4])
+                T.writes(T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_broadcast_to[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv327[v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def concatenate(lv20: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), lv24: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv24[v_ax0, v_ax1 - T.int64(32), v_ax2, v_ax3], lv20[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(32) <= v_ax1, lv24[v_ax0, v_ax1 - T.int64(32), v_ax2, v_ax3], lv20[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate1(lv55: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), lv59: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv59[v_ax0, v_ax1 - T.int64(64), v_ax2, v_ax3], lv55[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(64) <= v_ax1, lv59[v_ax0, v_ax1 - T.int64(64), v_ax2, v_ax3], lv55[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate10(lv284: T.Buffer((T.int64(1), T.int64(19200), T.int64(41)), "float32"), lv316: T.Buffer((T.int64(1), T.int64(4800), T.int64(41)), "float32"), lv348: T.Buffer((T.int64(1), T.int64(1200), T.int64(41)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(25200), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(1), T.int64(25200), T.int64(41)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv348[v_ax0, v_ax1 - T.int64(24000), v_ax2], lv316[v_ax0, v_ax1 - T.int64(19200), v_ax2], lv284[v_ax0, v_ax1, v_ax2])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2])
+                T_concat[v_ax0, v_ax1, v_ax2] = T.if_then_else(T.int64(24000) <= v_ax1, lv348[v_ax0, v_ax1 - T.int64(24000), v_ax2], T.if_then_else(T.int64(19200) <= v_ax1, lv316[v_ax0, v_ax1 - T.int64(19200), v_ax2], lv284[v_ax0, v_ax1, v_ax2]))
+
+    @T.prim_func(private=True)
+    def concatenate2(lv99: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), lv103: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv103[v_ax0, v_ax1 - T.int64(128), v_ax2, v_ax3], lv99[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(128) <= v_ax1, lv103[v_ax0, v_ax1 - T.int64(128), v_ax2, v_ax3], lv99[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate3(lv125: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv129: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv129[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv125[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(256) <= v_ax1, lv129[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv125[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate4(lv138: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv139: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv140: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), lv141: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(1024), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(1024), T.int64(20), T.int64(20)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv141[v_ax0, v_ax1 - T.int64(768), v_ax2, v_ax3], lv140[v_ax0, v_ax1 - T.int64(512), v_ax2, v_ax3], lv139[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv138[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(768) <= v_ax1, lv141[v_ax0, v_ax1 - T.int64(768), v_ax2, v_ax3], T.if_then_else(T.int64(512) <= v_ax1, lv140[v_ax0, v_ax1 - T.int64(512), v_ax2, v_ax3], T.if_then_else(T.int64(256) <= v_ax1, lv139[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv138[v_ax0, v_ax1, v_ax2, v_ax3])))
+
+    @T.prim_func(private=True)
+    def concatenate5(lv151: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), lv108: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(512), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(512), T.int64(40), T.int64(40)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv108[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv151[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(256) <= v_ax1, lv108[v_ax0, v_ax1 - T.int64(256), v_ax2, v_ax3], lv151[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate6(lv178: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), lv64: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(256), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(80), T.int64(80)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv64[v_ax0, v_ax1 - T.int64(128), v_ax2, v_ax3], lv178[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(128) <= v_ax1, lv64[v_ax0, v_ax1 - T.int64(128), v_ax2, v_ax3], lv178[v_ax0, v_ax1, v_ax2, v_ax3])
+
+    @T.prim_func(private=True)
+    def concatenate7(lv279: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), lv282: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), lv275: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(37)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv275[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], lv282[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv279[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.if_then_else(T.int64(4) <= v_ax4, lv275[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], T.if_then_else(T.int64(2) <= v_ax4, lv282[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv279[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]))
+
+    @T.prim_func(private=True)
+    def concatenate8(lv311: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), lv314: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), lv307: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(37)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv307[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], lv314[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv311[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.if_then_else(T.int64(4) <= v_ax4, lv307[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], T.if_then_else(T.int64(2) <= v_ax4, lv314[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv311[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]))
+
+    @T.prim_func(private=True)
+    def concatenate9(lv343: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), lv346: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), lv339: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(37)), "float32"), T_concat: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)):
+            with T.block("T_concat"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv339[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], lv346[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv343[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_concat[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.if_then_else(T.int64(4) <= v_ax4, lv339[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(4)], T.if_then_else(T.int64(2) <= v_ax4, lv346[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 - T.int64(2)], lv343[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]))
+
+    @T.prim_func(private=True)
+    def conv2d(im: T.Buffer((T.int64(1), T.int64(3), T.int64(640), T.int64(640)), "float32"), B: T.Buffer((T.int64(32), T.int64(3), T.int64(6), T.int64(6)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(3), T.int64(644), T.int64(644)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(3), T.int64(644), T.int64(644)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(im[v_i0, v_i1, v_i2 - T.int64(2), v_i3 - T.int64(2)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(2) <= v_i2 and v_i2 < T.int64(642) and T.int64(2) <= v_i3 and v_i3 < T.int64(642), im[v_i0, v_i1, v_i2 - T.int64(2), v_i3 - T.int64(2)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(32), T.int64(320), T.int64(320), T.int64(3), T.int64(6), T.int64(6)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d1(lv3: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32"), B: T.Buffer((T.int64(64), T.int64(32), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(32), T.int64(322), T.int64(322)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(32), T.int64(322), T.int64(322)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv3[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(321) and T.int64(1) <= v_i3 and v_i3 < T.int64(321), lv3[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160), T.int64(32), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d10(lv60: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(128), T.int64(128), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv60[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv60[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80), T.int64(128), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d11(lv64: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(256), T.int64(128), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(82), T.int64(82)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(82), T.int64(82)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv64[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(81) and T.int64(1) <= v_i3 and v_i3 < T.int64(81), lv64[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40), T.int64(128), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d12(lv68: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(128), T.int64(256), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv68[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv68[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40), T.int64(256), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d13(lv72: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(128), T.int64(128), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv72[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv72[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40), T.int64(128), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d14(lv76: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(128), T.int64(128), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(42), T.int64(42)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(42), T.int64(42)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv76[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(41) and T.int64(1) <= v_i3 and v_i3 < T.int64(41), lv76[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40), T.int64(128), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d15(lv104: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(256), T.int64(256), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv104[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv104[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40), T.int64(256), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d16(lv108: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(512), T.int64(256), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(42), T.int64(42)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(42), T.int64(42)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv108[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(41) and T.int64(1) <= v_i3 and v_i3 < T.int64(41), lv108[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20), T.int64(256), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d17(lv112: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(256), T.int64(512), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv112[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv112[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20), T.int64(512), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d18(lv116: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(256), T.int64(256), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv116[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv116[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20), T.int64(256), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d19(lv120: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(256), T.int64(256), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(22), T.int64(22)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(22), T.int64(22)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv120[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(21) and T.int64(1) <= v_i3 and v_i3 < T.int64(21), lv120[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20), T.int64(256), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d2(lv7: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32"), B: T.Buffer((T.int64(32), T.int64(64), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv7[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv7[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160), T.int64(64), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d20(lv130: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(512), T.int64(512), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv130[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv130[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20), T.int64(512), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d21(lv142: T.Buffer((T.int64(1), T.int64(1024), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(512), T.int64(1024), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(1024), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(1024), T.int64(20), T.int64(20)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv142[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv142[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20), T.int64(1024), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d22(lv152: T.Buffer((T.int64(1), T.int64(512), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(128), T.int64(512), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(512), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(512), T.int64(40), T.int64(40)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv152[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv152[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40), T.int64(512), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d23(lv179: T.Buffer((T.int64(1), T.int64(256), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(64), T.int64(256), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(80), T.int64(80)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv179[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv179[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80), T.int64(256), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d24(lv200: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(128), T.int64(128), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(82), T.int64(82)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(82), T.int64(82)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv200[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(81) and T.int64(1) <= v_i3 and v_i3 < T.int64(81), lv200[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40), T.int64(128), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d25(lv226: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(256), T.int64(256), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(42), T.int64(42)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(42), T.int64(42)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv226[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(41) and T.int64(1) <= v_i3 and v_i3 < T.int64(41), lv226[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20), T.int64(256), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d26(lv200: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(123), T.int64(128), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(123), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv200[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv200[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(123), T.int64(80), T.int64(80), T.int64(128), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d27(lv226: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), B: T.Buffer((T.int64(123), T.int64(256), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(123), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv226[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv226[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(123), T.int64(40), T.int64(40), T.int64(256), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d28(lv252: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32"), B: T.Buffer((T.int64(123), T.int64(512), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(123), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv252[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv252[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(123), T.int64(20), T.int64(20), T.int64(512), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d3(lv11: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), B: T.Buffer((T.int64(32), T.int64(32), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv11[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv11[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160), T.int64(32), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d4(lv15: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), B: T.Buffer((T.int64(32), T.int64(32), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(32), T.int64(162), T.int64(162)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(32), T.int64(162), T.int64(162)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv15[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(161) and T.int64(1) <= v_i3 and v_i3 < T.int64(161), lv15[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160), T.int64(32), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d5(lv25: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32"), B: T.Buffer((T.int64(64), T.int64(64), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv25[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv25[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160), T.int64(64), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d6(lv29: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32"), B: T.Buffer((T.int64(128), T.int64(64), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(162), T.int64(162)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(162), T.int64(162)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv29[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(161) and T.int64(1) <= v_i3 and v_i3 < T.int64(161), lv29[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80), T.int64(64), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy * T.int64(2) + v_ry, v_xx * T.int64(2) + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d7(lv33: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(64), T.int64(128), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv33[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv33[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80), T.int64(128), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d8(lv37: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(64), T.int64(64), T.int64(1), T.int64(1)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv37[v_i0, v_i1, v_i2, v_i3])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = lv37[v_i0, v_i1, v_i2, v_i3]
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80), T.int64(64), T.int64(1), T.int64(1)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def conv2d9(lv41: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), B: T.Buffer((T.int64(64), T.int64(64), T.int64(3), T.int64(3)), "float32"), conv2d_nchw: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(82), T.int64(82)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(82), T.int64(82)):
+            with T.block("pad_temp"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv41[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)])
+                T.writes(pad_temp[v_i0, v_i1, v_i2, v_i3])
+                pad_temp[v_i0, v_i1, v_i2, v_i3] = T.if_then_else(T.int64(1) <= v_i2 and v_i2 < T.int64(81) and T.int64(1) <= v_i3 and v_i3 < T.int64(81), lv41[v_i0, v_i1, v_i2 - T.int64(1), v_i3 - T.int64(1)], T.float32(0.0))
+        for nn, ff, yy, xx, rc, ry, rx in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80), T.int64(64), T.int64(3), T.int64(3)):
+            with T.block("conv2d_nchw"):
+                v_nn, v_ff, v_yy, v_xx, v_rc, v_ry, v_rx = T.axis.remap("SSSSRRR", [nn, ff, yy, xx, rc, ry, rx])
+                T.reads(pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx], B[v_ff, v_rc, v_ry, v_rx])
+                T.writes(conv2d_nchw[v_nn, v_ff, v_yy, v_xx])
+                with T.init():
+                    conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = T.float32(0.0)
+                conv2d_nchw[v_nn, v_ff, v_yy, v_xx] = conv2d_nchw[v_nn, v_ff, v_yy, v_xx] + pad_temp[v_nn, v_rc, v_yy + v_ry, v_xx + v_rx] * B[v_ff, v_rc, v_ry, v_rx]
+
+    @T.prim_func(private=True)
+    def max_pool2d(lv138: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), pool_max: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        pad_temp = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(24), T.int64(24)))
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(24), T.int64(24)):
+            with T.block("pad_temp"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv138[v_ax0, v_ax1, v_ax2 - T.int64(2), v_ax3 - T.int64(2)])
+                T.writes(pad_temp[v_ax0, v_ax1, v_ax2, v_ax3])
+                pad_temp[v_ax0, v_ax1, v_ax2, v_ax3] = T.if_then_else(T.int64(2) <= v_ax2 and v_ax2 < T.int64(22) and T.int64(2) <= v_ax3 and v_ax3 < T.int64(22), lv138[v_ax0, v_ax1, v_ax2 - T.int64(2), v_ax3 - T.int64(2)], T.float32(-340282346638528859811704183484516925440.0))
+        for ax0, ax1, ax2, ax3, rv0, rv1 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20), T.int64(5), T.int64(5)):
+            with T.block("pool_max"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_rv0, v_rv1 = T.axis.remap("SSSSRR", [ax0, ax1, ax2, ax3, rv0, rv1])
+                T.reads(pad_temp[v_ax0, v_ax1, v_ax2 + v_rv0, v_ax3 + v_rv1])
+                T.writes(pool_max[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.block_attr({"schedule_rule": "meta_schedule.pool_max"})
+                with T.init():
+                    pool_max[v_ax0, v_ax1, v_ax2, v_ax3] = T.float32(-340282346638528859811704183484516925440.0)
+                pool_max[v_ax0, v_ax1, v_ax2, v_ax3] = T.max(pool_max[v_ax0, v_ax1, v_ax2, v_ax3], pad_temp[v_ax0, v_ax1, v_ax2 + v_rv0, v_ax3 + v_rv1])
+
+    @T.prim_func(private=True)
+    def meshgrid(lv258: T.Buffer((T.int64(80),), "float32"), lv259: T.Buffer((T.int64(80),), "float32"), T_meshgrid: T.Buffer((T.int64(80), T.int64(80)), "float32"), T_meshgrid_1: T.Buffer((T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1 in T.grid(T.int64(80), T.int64(80)):
+            with T.block("T_meshgrid"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv258[v_ax0])
+                T.writes(T_meshgrid[v_ax0, v_ax1])
+                T_meshgrid[v_ax0, v_ax1] = lv258[v_ax0]
+        for ax0, ax1 in T.grid(T.int64(80), T.int64(80)):
+            with T.block("T_meshgrid_1"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv259[v_ax1])
+                T.writes(T_meshgrid_1[v_ax0, v_ax1])
+                T_meshgrid_1[v_ax0, v_ax1] = lv259[v_ax1]
+
+    @T.prim_func(private=True)
+    def meshgrid1(lv290: T.Buffer((T.int64(40),), "float32"), lv291: T.Buffer((T.int64(40),), "float32"), T_meshgrid: T.Buffer((T.int64(40), T.int64(40)), "float32"), T_meshgrid_1: T.Buffer((T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1 in T.grid(T.int64(40), T.int64(40)):
+            with T.block("T_meshgrid"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv290[v_ax0])
+                T.writes(T_meshgrid[v_ax0, v_ax1])
+                T_meshgrid[v_ax0, v_ax1] = lv290[v_ax0]
+        for ax0, ax1 in T.grid(T.int64(40), T.int64(40)):
+            with T.block("T_meshgrid_1"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv291[v_ax1])
+                T.writes(T_meshgrid_1[v_ax0, v_ax1])
+                T_meshgrid_1[v_ax0, v_ax1] = lv291[v_ax1]
+
+    @T.prim_func(private=True)
+    def meshgrid2(lv322: T.Buffer((T.int64(20),), "float32"), lv323: T.Buffer((T.int64(20),), "float32"), T_meshgrid: T.Buffer((T.int64(20), T.int64(20)), "float32"), T_meshgrid_1: T.Buffer((T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1 in T.grid(T.int64(20), T.int64(20)):
+            with T.block("T_meshgrid"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv322[v_ax0])
+                T.writes(T_meshgrid[v_ax0, v_ax1])
+                T_meshgrid[v_ax0, v_ax1] = lv322[v_ax0]
+        for ax0, ax1 in T.grid(T.int64(20), T.int64(20)):
+            with T.block("T_meshgrid_1"):
+                v_ax0, v_ax1 = T.axis.remap("SS", [ax0, ax1])
+                T.reads(lv323[v_ax1])
+                T.writes(T_meshgrid_1[v_ax0, v_ax1])
+                T_meshgrid_1[v_ax0, v_ax1] = lv323[v_ax1]
+
+    @T.prim_func(private=True)
+    def multiply1(lv273: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv273[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv273[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * T.float32(2.0)
+
+    @T.prim_func(private=True)
+    def multiply2(lv277: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), lv278: T.Buffer((), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv277[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv278[()])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv277[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv278[()]
+
+    @T.prim_func(private=True)
+    def multiply3(lv281: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), lv270: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv281[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv270[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv281[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv270[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def multiply4(lv305: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv305[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv305[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * T.float32(2.0)
+
+    @T.prim_func(private=True)
+    def multiply5(lv309: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), lv310: T.Buffer((), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv309[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv310[()])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv309[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv310[()]
+
+    @T.prim_func(private=True)
+    def multiply6(lv313: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), lv302: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv313[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv302[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv313[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv302[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def multiply7(lv337: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv337[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv337[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * T.float32(2.0)
+
+    @T.prim_func(private=True)
+    def multiply8(lv341: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), lv342: T.Buffer((), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv341[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv342[()])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv341[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv342[()]
+
+    @T.prim_func(private=True)
+    def multiply9(lv345: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), lv334: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv345[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], lv334[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv345[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] * lv334[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+
+    @T.prim_func(private=True)
+    def power(lv280: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_power: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_power"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv280[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.pow(lv280[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], T.float32(2.0))
+
+    @T.prim_func(private=True)
+    def power1(lv312: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_power: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_power"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv312[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.pow(lv312[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], T.float32(2.0))
+
+    @T.prim_func(private=True)
+    def power2(lv344: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_power: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_power"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv344[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_power[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = T.pow(lv344[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4], T.float32(2.0))
+
+    @T.prim_func(private=True)
+    def reshape10(lv315: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(4800), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(1), T.int64(4800), T.int64(41)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv315[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(4800) // T.int64(1600), (v_ax2 // T.int64(41) + v_ax1) % T.int64(1600) // T.int64(40), (v_ax2 // T.int64(41) + v_ax1) % T.int64(40), v_ax2 % T.int64(41)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2])
+                T_reshape[v_ax0, v_ax1, v_ax2] = lv315[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(4800) // T.int64(1600), (v_ax2 // T.int64(41) + v_ax1) % T.int64(1600) // T.int64(40), (v_ax2 // T.int64(41) + v_ax1) % T.int64(40), v_ax2 % T.int64(41)]
+
+    @T.prim_func(private=True)
+    def reshape11(lv319: T.Buffer((T.int64(1), T.int64(123), T.int64(20), T.int64(20)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(41), T.int64(20), T.int64(20)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv319[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(20) + v_ax3) // T.int64(20) + v_ax2) % T.int64(123), (v_ax4 // T.int64(20) + v_ax3) % T.int64(20), v_ax4 % T.int64(20)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv319[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(20) + v_ax3) // T.int64(20) + v_ax2) % T.int64(123), (v_ax4 // T.int64(20) + v_ax3) % T.int64(20), v_ax4 % T.int64(20)]
+
+    @T.prim_func(private=True)
+    def reshape12(lv347: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(1200), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(1), T.int64(1200), T.int64(41)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv347[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(1200) // T.int64(400), (v_ax2 // T.int64(41) + v_ax1) % T.int64(400) // T.int64(20), (v_ax2 // T.int64(41) + v_ax1) % T.int64(20), v_ax2 % T.int64(41)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2])
+                T_reshape[v_ax0, v_ax1, v_ax2] = lv347[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(1200) // T.int64(400), (v_ax2 // T.int64(41) + v_ax1) % T.int64(400) // T.int64(20), (v_ax2 // T.int64(41) + v_ax1) % T.int64(20), v_ax2 % T.int64(41)]
+
+    @T.prim_func(private=True)
+    def reshape6(lv255: T.Buffer((T.int64(1), T.int64(123), T.int64(80), T.int64(80)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(41), T.int64(80), T.int64(80)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv255[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(80) + v_ax3) // T.int64(80) + v_ax2) % T.int64(123), (v_ax4 // T.int64(80) + v_ax3) % T.int64(80), v_ax4 % T.int64(80)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv255[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(80) + v_ax3) // T.int64(80) + v_ax2) % T.int64(123), (v_ax4 // T.int64(80) + v_ax3) % T.int64(80), v_ax4 % T.int64(80)]
+
+    @T.prim_func(private=True)
+    def reshape8(lv283: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(19200), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(1), T.int64(19200), T.int64(41)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv283[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(19200) // T.int64(6400), (v_ax2 // T.int64(41) + v_ax1) % T.int64(6400) // T.int64(80), (v_ax2 // T.int64(41) + v_ax1) % T.int64(80), v_ax2 % T.int64(41)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2])
+                T_reshape[v_ax0, v_ax1, v_ax2] = lv283[T.int64(0), (v_ax2 // T.int64(41) + v_ax1) % T.int64(19200) // T.int64(6400), (v_ax2 // T.int64(41) + v_ax1) % T.int64(6400) // T.int64(80), (v_ax2 // T.int64(41) + v_ax1) % T.int64(80), v_ax2 % T.int64(41)]
+
+    @T.prim_func(private=True)
+    def reshape9(lv287: T.Buffer((T.int64(1), T.int64(123), T.int64(40), T.int64(40)), "float32"), T_reshape: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(41), T.int64(40), T.int64(40)):
+            with T.block("T_reshape"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv287[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(40) + v_ax3) // T.int64(40) + v_ax2) % T.int64(123), (v_ax4 // T.int64(40) + v_ax3) % T.int64(40), v_ax4 % T.int64(40)])
+                T.writes(T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_reshape[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv287[T.int64(0), (v_ax1 * T.int64(41) + (v_ax4 // T.int64(40) + v_ax3) // T.int64(40) + v_ax2) % T.int64(123), (v_ax4 // T.int64(40) + v_ax3) % T.int64(40), v_ax4 % T.int64(40)]
+
+    @T.prim_func(private=True)
+    def resize2d(lv150: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), resize: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("resize"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv150[v_i0, v_i1, T.int64(0):T.int64(20), T.int64(0):T.int64(20)])
+                T.writes(resize[v_i0, v_i1, v_i2, v_i3])
+                resize[v_i0, v_i1, v_i2, v_i3] = lv150[v_i0, v_i1, T.max(T.min(T.Cast("int64", T.round((T.Cast("float32", v_i2) + T.float32(0.5)) * T.float32(0.5) - T.float32(0.5))), T.int64(19)), T.int64(0)), T.max(T.min(T.Cast("int64", T.round((T.Cast("float32", v_i3) + T.float32(0.5)) * T.float32(0.5) - T.float32(0.5))), T.int64(19)), T.int64(0))]
+
+    @T.prim_func(private=True)
+    def resize2d1(lv177: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), resize: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("resize"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv177[v_i0, v_i1, T.int64(0):T.int64(40), T.int64(0):T.int64(40)])
+                T.writes(resize[v_i0, v_i1, v_i2, v_i3])
+                resize[v_i0, v_i1, v_i2, v_i3] = lv177[v_i0, v_i1, T.max(T.min(T.Cast("int64", T.round((T.Cast("float32", v_i2) + T.float32(0.5)) * T.float32(0.5) - T.float32(0.5))), T.int64(39)), T.int64(0)), T.max(T.min(T.Cast("int64", T.round((T.Cast("float32", v_i3) + T.float32(0.5)) * T.float32(0.5) - T.float32(0.5))), T.int64(39)), T.int64(0))]
+
+    @T.prim_func(private=True)
+    def silu(lv2: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(32), T.int64(320), T.int64(320)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(32), T.int64(320), T.int64(320)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv2[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv2[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(32), T.int64(320), T.int64(320)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv2[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv2[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu1(lv6: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(160), T.int64(160)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv6[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv6[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(160), T.int64(160)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv6[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv6[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu2(lv10: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(32), T.int64(160), T.int64(160)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv10[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv10[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(32), T.int64(160), T.int64(160)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv10[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv10[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu3(lv32: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv32[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv32[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(80), T.int64(80)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv32[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv32[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu4(lv36: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(64), T.int64(80), T.int64(80)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv36[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv36[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(64), T.int64(80), T.int64(80)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv36[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv36[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu5(lv67: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv67[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv67[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(40), T.int64(40)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv67[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv67[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu6(lv71: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(128), T.int64(40), T.int64(40)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv71[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv71[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(128), T.int64(40), T.int64(40)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv71[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv71[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu7(lv111: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(512), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv111[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv111[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(512), T.int64(20), T.int64(20)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv111[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv111[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def silu8(lv115: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32"), T_multiply: T.Buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        compute = T.alloc_buffer((T.int64(1), T.int64(256), T.int64(20), T.int64(20)))
+        for i0, i1, i2, i3 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3 = T.axis.remap("SSSS", [i0, i1, i2, i3])
+                T.reads(lv115[v_i0, v_i1, v_i2, v_i3])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3])
+                compute[v_i0, v_i1, v_i2, v_i3] = T.sigmoid(lv115[v_i0, v_i1, v_i2, v_i3])
+        for ax0, ax1, ax2, ax3 in T.grid(T.int64(1), T.int64(256), T.int64(20), T.int64(20)):
+            with T.block("T_multiply"):
+                v_ax0, v_ax1, v_ax2, v_ax3 = T.axis.remap("SSSS", [ax0, ax1, ax2, ax3])
+                T.reads(lv115[v_ax0, v_ax1, v_ax2, v_ax3], compute[v_ax0, v_ax1, v_ax2, v_ax3])
+                T.writes(T_multiply[v_ax0, v_ax1, v_ax2, v_ax3])
+                T_multiply[v_ax0, v_ax1, v_ax2, v_ax3] = lv115[v_ax0, v_ax1, v_ax2, v_ax3] * compute[v_ax0, v_ax1, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def split(lv271: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32"), T_split: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_split_1: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_split_2: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(37)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_split"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_split_1"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)])
+                T.writes(T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(37)):
+            with T.block("T_split_2"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)])
+                T.writes(T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv271[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)]
+
+    @T.prim_func(private=True)
+    def split1(lv303: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32"), T_split: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_split_1: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_split_2: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(37)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_split"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_split_1"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)])
+                T.writes(T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(37)):
+            with T.block("T_split_2"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)])
+                T.writes(T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv303[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)]
+
+    @T.prim_func(private=True)
+    def split2(lv335: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32"), T_split: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_split_1: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_split_2: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(37)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_split"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_split_1"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)])
+                T.writes(T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_1[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(2)]
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(37)):
+            with T.block("T_split_2"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)])
+                T.writes(T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_split_2[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv335[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 + T.int64(4)]
+
+    @T.prim_func(private=True)
+    def stack(lv262: T.Buffer((T.int64(80), T.int64(80)), "float32"), lv261: T.Buffer((T.int64(80), T.int64(80)), "float32"), T_stack: T.Buffer((T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_stack"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv261[v_ax0, v_ax1], lv262[v_ax0, v_ax1])
+                T.writes(T_stack[v_ax0, v_ax1, v_ax2])
+                T_stack[v_ax0, v_ax1, v_ax2] = T.if_then_else(v_ax2 == T.int64(1), lv261[v_ax0, v_ax1], lv262[v_ax0, v_ax1])
+
+    @T.prim_func(private=True)
+    def stack1(lv294: T.Buffer((T.int64(40), T.int64(40)), "float32"), lv293: T.Buffer((T.int64(40), T.int64(40)), "float32"), T_stack: T.Buffer((T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_stack"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv293[v_ax0, v_ax1], lv294[v_ax0, v_ax1])
+                T.writes(T_stack[v_ax0, v_ax1, v_ax2])
+                T_stack[v_ax0, v_ax1, v_ax2] = T.if_then_else(v_ax2 == T.int64(1), lv293[v_ax0, v_ax1], lv294[v_ax0, v_ax1])
+
+    @T.prim_func(private=True)
+    def stack2(lv326: T.Buffer((T.int64(20), T.int64(20)), "float32"), lv325: T.Buffer((T.int64(20), T.int64(20)), "float32"), T_stack: T.Buffer((T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2 in T.grid(T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_stack"):
+                v_ax0, v_ax1, v_ax2 = T.axis.remap("SSS", [ax0, ax1, ax2])
+                T.reads(lv325[v_ax0, v_ax1], lv326[v_ax0, v_ax1])
+                T.writes(T_stack[v_ax0, v_ax1, v_ax2])
+                T_stack[v_ax0, v_ax1, v_ax2] = T.if_then_else(v_ax2 == T.int64(1), lv325[v_ax0, v_ax1], lv326[v_ax0, v_ax1])
+
+    @T.prim_func(private=True)
+    def subtract(lv264: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32"), T_subtract: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(2)):
+            with T.block("T_subtract"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv264[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv264[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] - T.float32(0.5)
+
+    @T.prim_func(private=True)
+    def subtract1(lv296: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32"), T_subtract: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(2)):
+            with T.block("T_subtract"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv296[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv296[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] - T.float32(0.5)
+
+    @T.prim_func(private=True)
+    def subtract2(lv328: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32"), T_subtract: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(2)):
+            with T.block("T_subtract"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv328[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T.writes(T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_subtract[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv328[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] - T.float32(0.5)
+
+    @T.prim_func(private=True)
+    def tir_sigmoid(lv257: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32"), compute: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for i0, i1, i2, i3, i4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3, v_i4 = T.axis.remap("SSSSS", [i0, i1, i2, i3, i4])
+                T.reads(lv257[v_i0, v_i1, v_i2, v_i3, v_i4])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3, v_i4])
+                compute[v_i0, v_i1, v_i2, v_i3, v_i4] = T.sigmoid(lv257[v_i0, v_i1, v_i2, v_i3, v_i4])
+
+    @T.prim_func(private=True)
+    def tir_sigmoid1(lv289: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32"), compute: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for i0, i1, i2, i3, i4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3, v_i4 = T.axis.remap("SSSSS", [i0, i1, i2, i3, i4])
+                T.reads(lv289[v_i0, v_i1, v_i2, v_i3, v_i4])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3, v_i4])
+                compute[v_i0, v_i1, v_i2, v_i3, v_i4] = T.sigmoid(lv289[v_i0, v_i1, v_i2, v_i3, v_i4])
+
+    @T.prim_func(private=True)
+    def tir_sigmoid2(lv321: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32"), compute: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for i0, i1, i2, i3, i4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)):
+            with T.block("compute"):
+                v_i0, v_i1, v_i2, v_i3, v_i4 = T.axis.remap("SSSSS", [i0, i1, i2, i3, i4])
+                T.reads(lv321[v_i0, v_i1, v_i2, v_i3, v_i4])
+                T.writes(compute[v_i0, v_i1, v_i2, v_i3, v_i4])
+                compute[v_i0, v_i1, v_i2, v_i3, v_i4] = T.sigmoid(lv321[v_i0, v_i1, v_i2, v_i3, v_i4])
+
+    @T.prim_func(private=True)
+    def transpose(lv256: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(80), T.int64(80)), "float32"), T_transpose: T.Buffer((T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(80), T.int64(80), T.int64(41)):
+            with T.block("T_transpose"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv256[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3])
+                T.writes(T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv256[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def transpose1(lv288: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(40), T.int64(40)), "float32"), T_transpose: T.Buffer((T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(40), T.int64(40), T.int64(41)):
+            with T.block("T_transpose"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv288[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3])
+                T.writes(T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv288[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3]
+
+    @T.prim_func(private=True)
+    def transpose2(lv320: T.Buffer((T.int64(1), T.int64(3), T.int64(41), T.int64(20), T.int64(20)), "float32"), T_transpose: T.Buffer((T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)), "float32")):
+        T.func_attr({"tir.noalias": True})
+        # with T.block("root"):
+        for ax0, ax1, ax2, ax3, ax4 in T.grid(T.int64(1), T.int64(3), T.int64(20), T.int64(20), T.int64(41)):
+            with T.block("T_transpose"):
+                v_ax0, v_ax1, v_ax2, v_ax3, v_ax4 = T.axis.remap("SSSSS", [ax0, ax1, ax2, ax3, ax4])
+                T.reads(lv320[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3])
+                T.writes(T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4])
+                T_transpose[v_ax0, v_ax1, v_ax2, v_ax3, v_ax4] = lv320[v_ax0, v_ax1, v_ax4, v_ax2, v_ax3]
+
+    @R.function
+    def main(im: R.Tensor((1, 3, 640, 640), dtype="float32")) -> R.Tuple(R.Tensor((1, 25200, 41), dtype="float32")):
+        cls = Module
+        with R.dataflow():
+            lv = R.call_tir(cls.conv2d, (im, metadata["relax.expr.Constant"][0]), out_sinfo=R.Tensor((1, 32, 320, 320), dtype="float32"))
+            lv2 = R.call_tir(cls.add, (lv, metadata["relax.expr.Constant"][1]), out_sinfo=R.Tensor((1, 32, 320, 320), dtype="float32"))
+            lv3 = R.call_tir(cls.silu, (lv2,), out_sinfo=R.Tensor((1, 32, 320, 320), dtype="float32"))
+            lv4 = R.call_tir(cls.conv2d1, (lv3, metadata["relax.expr.Constant"][2]), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv6 = R.call_tir(cls.add1, (lv4, metadata["relax.expr.Constant"][3]), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv7 = R.call_tir(cls.silu1, (lv6,), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv8 = R.call_tir(cls.conv2d2, (lv7, metadata["relax.expr.Constant"][4]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv10 = R.call_tir(cls.add2, (lv8, metadata["relax.expr.Constant"][5]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv11 = R.call_tir(cls.silu2, (lv10,), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv12 = R.call_tir(cls.conv2d3, (lv11, metadata["relax.expr.Constant"][6]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv14 = R.call_tir(cls.add2, (lv12, metadata["relax.expr.Constant"][7]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv15 = R.call_tir(cls.silu2, (lv14,), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv16 = R.call_tir(cls.conv2d4, (lv15, metadata["relax.expr.Constant"][8]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv18 = R.call_tir(cls.add2, (lv16, metadata["relax.expr.Constant"][9]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv19 = R.call_tir(cls.silu2, (lv18,), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv20 = R.call_tir(cls.add3, (lv11, lv19), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv21 = R.call_tir(cls.conv2d2, (lv7, metadata["relax.expr.Constant"][10]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv23 = R.call_tir(cls.add2, (lv21, metadata["relax.expr.Constant"][11]), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv24 = R.call_tir(cls.silu2, (lv23,), out_sinfo=R.Tensor((1, 32, 160, 160), dtype="float32"))
+            lv25 = R.call_tir(cls.concatenate, (lv20, lv24), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv26 = R.call_tir(cls.conv2d5, (lv25, metadata["relax.expr.Constant"][12]), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv28 = R.call_tir(cls.add1, (lv26, metadata["relax.expr.Constant"][13]), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv29 = R.call_tir(cls.silu1, (lv28,), out_sinfo=R.Tensor((1, 64, 160, 160), dtype="float32"))
+            lv30 = R.call_tir(cls.conv2d6, (lv29, metadata["relax.expr.Constant"][14]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv32 = R.call_tir(cls.add4, (lv30, metadata["relax.expr.Constant"][15]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv33 = R.call_tir(cls.silu3, (lv32,), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv34 = R.call_tir(cls.conv2d7, (lv33, metadata["relax.expr.Constant"][16]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv36 = R.call_tir(cls.add5, (lv34, metadata["relax.expr.Constant"][17]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv37 = R.call_tir(cls.silu4, (lv36,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv38 = R.call_tir(cls.conv2d8, (lv37, metadata["relax.expr.Constant"][18]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv40 = R.call_tir(cls.add5, (lv38, metadata["relax.expr.Constant"][19]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv41 = R.call_tir(cls.silu4, (lv40,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv42 = R.call_tir(cls.conv2d9, (lv41, metadata["relax.expr.Constant"][20]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv44 = R.call_tir(cls.add5, (lv42, metadata["relax.expr.Constant"][21]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv45 = R.call_tir(cls.silu4, (lv44,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv46 = R.call_tir(cls.add6, (lv37, lv45), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv47 = R.call_tir(cls.conv2d8, (lv46, metadata["relax.expr.Constant"][22]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv49 = R.call_tir(cls.add5, (lv47, metadata["relax.expr.Constant"][23]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv50 = R.call_tir(cls.silu4, (lv49,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv51 = R.call_tir(cls.conv2d9, (lv50, metadata["relax.expr.Constant"][24]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv53 = R.call_tir(cls.add5, (lv51, metadata["relax.expr.Constant"][25]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv54 = R.call_tir(cls.silu4, (lv53,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv55 = R.call_tir(cls.add6, (lv46, lv54), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv56 = R.call_tir(cls.conv2d7, (lv33, metadata["relax.expr.Constant"][26]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv58 = R.call_tir(cls.add5, (lv56, metadata["relax.expr.Constant"][27]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv59 = R.call_tir(cls.silu4, (lv58,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv60 = R.call_tir(cls.concatenate1, (lv55, lv59), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv61 = R.call_tir(cls.conv2d10, (lv60, metadata["relax.expr.Constant"][28]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv63 = R.call_tir(cls.add4, (lv61, metadata["relax.expr.Constant"][29]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv64 = R.call_tir(cls.silu3, (lv63,), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv65 = R.call_tir(cls.conv2d11, (lv64, metadata["relax.expr.Constant"][30]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv67 = R.call_tir(cls.add7, (lv65, metadata["relax.expr.Constant"][31]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv68 = R.call_tir(cls.silu5, (lv67,), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv69 = R.call_tir(cls.conv2d12, (lv68, metadata["relax.expr.Constant"][32]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv71 = R.call_tir(cls.add8, (lv69, metadata["relax.expr.Constant"][33]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv72 = R.call_tir(cls.silu6, (lv71,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv73 = R.call_tir(cls.conv2d13, (lv72, metadata["relax.expr.Constant"][34]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv75 = R.call_tir(cls.add8, (lv73, metadata["relax.expr.Constant"][35]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv76 = R.call_tir(cls.silu6, (lv75,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv77 = R.call_tir(cls.conv2d14, (lv76, metadata["relax.expr.Constant"][36]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv79 = R.call_tir(cls.add8, (lv77, metadata["relax.expr.Constant"][37]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv80 = R.call_tir(cls.silu6, (lv79,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv81 = R.call_tir(cls.add9, (lv72, lv80), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv82 = R.call_tir(cls.conv2d13, (lv81, metadata["relax.expr.Constant"][38]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv84 = R.call_tir(cls.add8, (lv82, metadata["relax.expr.Constant"][39]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv85 = R.call_tir(cls.silu6, (lv84,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv86 = R.call_tir(cls.conv2d14, (lv85, metadata["relax.expr.Constant"][40]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv88 = R.call_tir(cls.add8, (lv86, metadata["relax.expr.Constant"][41]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv89 = R.call_tir(cls.silu6, (lv88,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv90 = R.call_tir(cls.add9, (lv81, lv89), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv91 = R.call_tir(cls.conv2d13, (lv90, metadata["relax.expr.Constant"][42]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv93 = R.call_tir(cls.add8, (lv91, metadata["relax.expr.Constant"][43]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv94 = R.call_tir(cls.silu6, (lv93,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv95 = R.call_tir(cls.conv2d14, (lv94, metadata["relax.expr.Constant"][44]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv97 = R.call_tir(cls.add8, (lv95, metadata["relax.expr.Constant"][45]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv98 = R.call_tir(cls.silu6, (lv97,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv99 = R.call_tir(cls.add9, (lv90, lv98), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv100 = R.call_tir(cls.conv2d12, (lv68, metadata["relax.expr.Constant"][46]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv102 = R.call_tir(cls.add8, (lv100, metadata["relax.expr.Constant"][47]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv103 = R.call_tir(cls.silu6, (lv102,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv104 = R.call_tir(cls.concatenate2, (lv99, lv103), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv105 = R.call_tir(cls.conv2d15, (lv104, metadata["relax.expr.Constant"][48]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv107 = R.call_tir(cls.add7, (lv105, metadata["relax.expr.Constant"][49]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv108 = R.call_tir(cls.silu5, (lv107,), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv109 = R.call_tir(cls.conv2d16, (lv108, metadata["relax.expr.Constant"][50]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv111 = R.call_tir(cls.add10, (lv109, metadata["relax.expr.Constant"][51]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv112 = R.call_tir(cls.silu7, (lv111,), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv113 = R.call_tir(cls.conv2d17, (lv112, metadata["relax.expr.Constant"][52]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv115 = R.call_tir(cls.add11, (lv113, metadata["relax.expr.Constant"][53]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv116 = R.call_tir(cls.silu8, (lv115,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv117 = R.call_tir(cls.conv2d18, (lv116, metadata["relax.expr.Constant"][54]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv119 = R.call_tir(cls.add11, (lv117, metadata["relax.expr.Constant"][55]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv120 = R.call_tir(cls.silu8, (lv119,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv121 = R.call_tir(cls.conv2d19, (lv120, metadata["relax.expr.Constant"][56]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv123 = R.call_tir(cls.add11, (lv121, metadata["relax.expr.Constant"][57]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv124 = R.call_tir(cls.silu8, (lv123,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv125 = R.call_tir(cls.add12, (lv116, lv124), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv126 = R.call_tir(cls.conv2d17, (lv112, metadata["relax.expr.Constant"][58]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv128 = R.call_tir(cls.add11, (lv126, metadata["relax.expr.Constant"][59]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv129 = R.call_tir(cls.silu8, (lv128,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv130 = R.call_tir(cls.concatenate3, (lv125, lv129), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv131 = R.call_tir(cls.conv2d20, (lv130, metadata["relax.expr.Constant"][60]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv133 = R.call_tir(cls.add10, (lv131, metadata["relax.expr.Constant"][61]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv134 = R.call_tir(cls.silu7, (lv133,), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv135 = R.call_tir(cls.conv2d17, (lv134, metadata["relax.expr.Constant"][62]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv137 = R.call_tir(cls.add11, (lv135, metadata["relax.expr.Constant"][63]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv138 = R.call_tir(cls.silu8, (lv137,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv139 = R.call_tir(cls.max_pool2d, (lv138,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv140 = R.call_tir(cls.max_pool2d, (lv139,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv141 = R.call_tir(cls.max_pool2d, (lv140,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv142 = R.call_tir(cls.concatenate4, (lv138, lv139, lv140, lv141), out_sinfo=R.Tensor((1, 1024, 20, 20), dtype="float32"))
+            lv143 = R.call_tir(cls.conv2d21, (lv142, metadata["relax.expr.Constant"][64]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv145 = R.call_tir(cls.add10, (lv143, metadata["relax.expr.Constant"][65]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv146 = R.call_tir(cls.silu7, (lv145,), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv147 = R.call_tir(cls.conv2d17, (lv146, metadata["relax.expr.Constant"][66]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv149 = R.call_tir(cls.add11, (lv147, metadata["relax.expr.Constant"][67]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv150 = R.call_tir(cls.silu8, (lv149,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv151 = R.call_tir(cls.resize2d, (lv150,), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv152 = R.call_tir(cls.concatenate5, (lv151, lv108), out_sinfo=R.Tensor((1, 512, 40, 40), dtype="float32"))
+            lv153 = R.call_tir(cls.conv2d22, (lv152, metadata["relax.expr.Constant"][68]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv155 = R.call_tir(cls.add8, (lv153, metadata["relax.expr.Constant"][69]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv156 = R.call_tir(cls.silu6, (lv155,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv157 = R.call_tir(cls.conv2d13, (lv156, metadata["relax.expr.Constant"][70]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv159 = R.call_tir(cls.add8, (lv157, metadata["relax.expr.Constant"][71]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv160 = R.call_tir(cls.silu6, (lv159,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv161 = R.call_tir(cls.conv2d14, (lv160, metadata["relax.expr.Constant"][72]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv163 = R.call_tir(cls.add8, (lv161, metadata["relax.expr.Constant"][73]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv164 = R.call_tir(cls.silu6, (lv163,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv165 = R.call_tir(cls.conv2d22, (lv152, metadata["relax.expr.Constant"][74]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv167 = R.call_tir(cls.add8, (lv165, metadata["relax.expr.Constant"][75]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv168 = R.call_tir(cls.silu6, (lv167,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv169 = R.call_tir(cls.concatenate2, (lv164, lv168), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv170 = R.call_tir(cls.conv2d15, (lv169, metadata["relax.expr.Constant"][76]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv172 = R.call_tir(cls.add7, (lv170, metadata["relax.expr.Constant"][77]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv173 = R.call_tir(cls.silu5, (lv172,), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv174 = R.call_tir(cls.conv2d12, (lv173, metadata["relax.expr.Constant"][78]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv176 = R.call_tir(cls.add8, (lv174, metadata["relax.expr.Constant"][79]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv177 = R.call_tir(cls.silu6, (lv176,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv178 = R.call_tir(cls.resize2d1, (lv177,), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv179 = R.call_tir(cls.concatenate6, (lv178, lv64), out_sinfo=R.Tensor((1, 256, 80, 80), dtype="float32"))
+            lv180 = R.call_tir(cls.conv2d23, (lv179, metadata["relax.expr.Constant"][80]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv182 = R.call_tir(cls.add5, (lv180, metadata["relax.expr.Constant"][81]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv183 = R.call_tir(cls.silu4, (lv182,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv184 = R.call_tir(cls.conv2d8, (lv183, metadata["relax.expr.Constant"][82]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv186 = R.call_tir(cls.add5, (lv184, metadata["relax.expr.Constant"][83]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv187 = R.call_tir(cls.silu4, (lv186,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv188 = R.call_tir(cls.conv2d9, (lv187, metadata["relax.expr.Constant"][84]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv190 = R.call_tir(cls.add5, (lv188, metadata["relax.expr.Constant"][85]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv191 = R.call_tir(cls.silu4, (lv190,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv192 = R.call_tir(cls.conv2d23, (lv179, metadata["relax.expr.Constant"][86]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv194 = R.call_tir(cls.add5, (lv192, metadata["relax.expr.Constant"][87]), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv195 = R.call_tir(cls.silu4, (lv194,), out_sinfo=R.Tensor((1, 64, 80, 80), dtype="float32"))
+            lv196 = R.call_tir(cls.concatenate1, (lv191, lv195), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv197 = R.call_tir(cls.conv2d10, (lv196, metadata["relax.expr.Constant"][88]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv199 = R.call_tir(cls.add4, (lv197, metadata["relax.expr.Constant"][89]), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv200 = R.call_tir(cls.silu3, (lv199,), out_sinfo=R.Tensor((1, 128, 80, 80), dtype="float32"))
+            lv201 = R.call_tir(cls.conv2d24, (lv200, metadata["relax.expr.Constant"][90]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv203 = R.call_tir(cls.add8, (lv201, metadata["relax.expr.Constant"][91]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv204 = R.call_tir(cls.silu6, (lv203,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv205 = R.call_tir(cls.concatenate2, (lv204, lv177), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv206 = R.call_tir(cls.conv2d12, (lv205, metadata["relax.expr.Constant"][92]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv208 = R.call_tir(cls.add8, (lv206, metadata["relax.expr.Constant"][93]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv209 = R.call_tir(cls.silu6, (lv208,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv210 = R.call_tir(cls.conv2d13, (lv209, metadata["relax.expr.Constant"][94]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv212 = R.call_tir(cls.add8, (lv210, metadata["relax.expr.Constant"][95]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv213 = R.call_tir(cls.silu6, (lv212,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv214 = R.call_tir(cls.conv2d14, (lv213, metadata["relax.expr.Constant"][96]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv216 = R.call_tir(cls.add8, (lv214, metadata["relax.expr.Constant"][97]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv217 = R.call_tir(cls.silu6, (lv216,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv218 = R.call_tir(cls.conv2d12, (lv205, metadata["relax.expr.Constant"][98]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv220 = R.call_tir(cls.add8, (lv218, metadata["relax.expr.Constant"][99]), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv221 = R.call_tir(cls.silu6, (lv220,), out_sinfo=R.Tensor((1, 128, 40, 40), dtype="float32"))
+            lv222 = R.call_tir(cls.concatenate2, (lv217, lv221), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv223 = R.call_tir(cls.conv2d15, (lv222, metadata["relax.expr.Constant"][100]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv225 = R.call_tir(cls.add7, (lv223, metadata["relax.expr.Constant"][101]), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv226 = R.call_tir(cls.silu5, (lv225,), out_sinfo=R.Tensor((1, 256, 40, 40), dtype="float32"))
+            lv227 = R.call_tir(cls.conv2d25, (lv226, metadata["relax.expr.Constant"][102]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv229 = R.call_tir(cls.add11, (lv227, metadata["relax.expr.Constant"][103]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv230 = R.call_tir(cls.silu8, (lv229,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv231 = R.call_tir(cls.concatenate3, (lv230, lv150), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv232 = R.call_tir(cls.conv2d17, (lv231, metadata["relax.expr.Constant"][104]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv234 = R.call_tir(cls.add11, (lv232, metadata["relax.expr.Constant"][105]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv235 = R.call_tir(cls.silu8, (lv234,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv236 = R.call_tir(cls.conv2d18, (lv235, metadata["relax.expr.Constant"][106]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv238 = R.call_tir(cls.add11, (lv236, metadata["relax.expr.Constant"][107]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv239 = R.call_tir(cls.silu8, (lv238,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv240 = R.call_tir(cls.conv2d19, (lv239, metadata["relax.expr.Constant"][108]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv242 = R.call_tir(cls.add11, (lv240, metadata["relax.expr.Constant"][109]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv243 = R.call_tir(cls.silu8, (lv242,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv244 = R.call_tir(cls.conv2d17, (lv231, metadata["relax.expr.Constant"][110]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv246 = R.call_tir(cls.add11, (lv244, metadata["relax.expr.Constant"][111]), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv247 = R.call_tir(cls.silu8, (lv246,), out_sinfo=R.Tensor((1, 256, 20, 20), dtype="float32"))
+            lv248 = R.call_tir(cls.concatenate3, (lv243, lv247), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv249 = R.call_tir(cls.conv2d20, (lv248, metadata["relax.expr.Constant"][112]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv251 = R.call_tir(cls.add10, (lv249, metadata["relax.expr.Constant"][113]), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv252 = R.call_tir(cls.silu7, (lv251,), out_sinfo=R.Tensor((1, 512, 20, 20), dtype="float32"))
+            lv253 = R.call_tir(cls.conv2d26, (lv200, metadata["relax.expr.Constant"][114]), out_sinfo=R.Tensor((1, 123, 80, 80), dtype="float32"))
+            lv255 = R.call_tir(cls.add13, (lv253, metadata["relax.expr.Constant"][115]), out_sinfo=R.Tensor((1, 123, 80, 80), dtype="float32"))
+            lv256 = R.call_tir(cls.reshape6, (lv255,), out_sinfo=R.Tensor((1, 3, 41, 80, 80), dtype="float32"))
+            lv257 = R.call_tir(cls.transpose, (lv256,), out_sinfo=R.Tensor((1, 3, 80, 80, 41), dtype="float32"))
+            lv260 = R.call_tir(cls.meshgrid, (metadata["relax.expr.Constant"][116], metadata["relax.expr.Constant"][117]), out_sinfo=[R.Tensor((80, 80), dtype="float32"), R.Tensor((80, 80), dtype="float32")])
+            lv261: R.Tensor((80, 80), dtype="float32") = lv260[0]
+            lv262: R.Tensor((80, 80), dtype="float32") = lv260[1]
+            lv263 = R.call_tir(cls.stack, (lv262, lv261), out_sinfo=R.Tensor((80, 80, 2), dtype="float32"))
+            lv264 = R.call_tir(cls.broadcast_to, (lv263,), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv265 = R.call_tir(cls.subtract, (lv264,), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv271 = R.call_tir(cls.tir_sigmoid, (lv257,), out_sinfo=R.Tensor((1, 3, 80, 80, 41), dtype="float32"))
+            lv272 = R.call_tir(cls.split, (lv271,), out_sinfo=[R.Tensor((1, 3, 80, 80, 2), dtype="float32"), R.Tensor((1, 3, 80, 80, 2), dtype="float32"), R.Tensor((1, 3, 80, 80, 37), dtype="float32")])
+            lv273: R.Tensor((1, 3, 80, 80, 2), dtype="float32") = lv272[0]
+            lv274: R.Tensor((1, 3, 80, 80, 2), dtype="float32") = lv272[1]
+            lv275: R.Tensor((1, 3, 80, 80, 37), dtype="float32") = lv272[2]
+            lv276 = R.call_tir(cls.multiply1, (lv273,), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv277 = R.call_tir(cls.add14, (lv276, lv265), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv279 = R.call_tir(cls.multiply2, (lv277, R.const(8.0, "float32")), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv280 = R.call_tir(cls.multiply1, (lv274,), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv281 = R.call_tir(cls.power, (lv280,), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv282 = R.call_tir(cls.multiply3, (lv281, metadata["relax.expr.Constant"][118]), out_sinfo=R.Tensor((1, 3, 80, 80, 2), dtype="float32"))
+            lv283 = R.call_tir(cls.concatenate7, (lv279, lv282, lv275), out_sinfo=R.Tensor((1, 3, 80, 80, 41), dtype="float32"))
+            lv284 = R.call_tir(cls.reshape8, (lv283,), out_sinfo=R.Tensor((1, 19200, 41), dtype="float32"))
+            lv285 = R.call_tir(cls.conv2d27, (lv226, metadata["relax.expr.Constant"][119]), out_sinfo=R.Tensor((1, 123, 40, 40), dtype="float32"))
+            lv287 = R.call_tir(cls.add15, (lv285, metadata["relax.expr.Constant"][120]), out_sinfo=R.Tensor((1, 123, 40, 40), dtype="float32"))
+            lv288 = R.call_tir(cls.reshape9, (lv287,), out_sinfo=R.Tensor((1, 3, 41, 40, 40), dtype="float32"))
+            lv289 = R.call_tir(cls.transpose1, (lv288,), out_sinfo=R.Tensor((1, 3, 40, 40, 41), dtype="float32"))
+            lv292 = R.call_tir(cls.meshgrid1, (metadata["relax.expr.Constant"][121], metadata["relax.expr.Constant"][122]), out_sinfo=[R.Tensor((40, 40), dtype="float32"), R.Tensor((40, 40), dtype="float32")])
+            lv293: R.Tensor((40, 40), dtype="float32") = lv292[0]
+            lv294: R.Tensor((40, 40), dtype="float32") = lv292[1]
+            lv295 = R.call_tir(cls.stack1, (lv294, lv293), out_sinfo=R.Tensor((40, 40, 2), dtype="float32"))
+            lv296 = R.call_tir(cls.broadcast_to2, (lv295,), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv297 = R.call_tir(cls.subtract1, (lv296,), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv303 = R.call_tir(cls.tir_sigmoid1, (lv289,), out_sinfo=R.Tensor((1, 3, 40, 40, 41), dtype="float32"))
+            lv304 = R.call_tir(cls.split1, (lv303,), out_sinfo=[R.Tensor((1, 3, 40, 40, 2), dtype="float32"), R.Tensor((1, 3, 40, 40, 2), dtype="float32"), R.Tensor((1, 3, 40, 40, 37), dtype="float32")])
+            lv305: R.Tensor((1, 3, 40, 40, 2), dtype="float32") = lv304[0]
+            lv306: R.Tensor((1, 3, 40, 40, 2), dtype="float32") = lv304[1]
+            lv307: R.Tensor((1, 3, 40, 40, 37), dtype="float32") = lv304[2]
+            lv308 = R.call_tir(cls.multiply4, (lv305,), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv309 = R.call_tir(cls.add16, (lv308, lv297), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv311 = R.call_tir(cls.multiply5, (lv309, R.const(16.0, "float32")), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv312 = R.call_tir(cls.multiply4, (lv306,), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv313 = R.call_tir(cls.power1, (lv312,), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv314 = R.call_tir(cls.multiply6, (lv313, metadata["relax.expr.Constant"][123]), out_sinfo=R.Tensor((1, 3, 40, 40, 2), dtype="float32"))
+            lv315 = R.call_tir(cls.concatenate8, (lv311, lv314, lv307), out_sinfo=R.Tensor((1, 3, 40, 40, 41), dtype="float32"))
+            lv316 = R.call_tir(cls.reshape10, (lv315,), out_sinfo=R.Tensor((1, 4800, 41), dtype="float32"))
+            lv317 = R.call_tir(cls.conv2d28, (lv252, metadata["relax.expr.Constant"][124]), out_sinfo=R.Tensor((1, 123, 20, 20), dtype="float32"))
+            lv319 = R.call_tir(cls.add17, (lv317, metadata["relax.expr.Constant"][125]), out_sinfo=R.Tensor((1, 123, 20, 20), dtype="float32"))
+            lv320 = R.call_tir(cls.reshape11, (lv319,), out_sinfo=R.Tensor((1, 3, 41, 20, 20), dtype="float32"))
+            lv321 = R.call_tir(cls.transpose2, (lv320,), out_sinfo=R.Tensor((1, 3, 20, 20, 41), dtype="float32"))
+            lv324 = R.call_tir(cls.meshgrid2, (metadata["relax.expr.Constant"][126], metadata["relax.expr.Constant"][127]), out_sinfo=[R.Tensor((20, 20), dtype="float32"), R.Tensor((20, 20), dtype="float32")])
+            lv325: R.Tensor((20, 20), dtype="float32") = lv324[0]
+            lv326: R.Tensor((20, 20), dtype="float32") = lv324[1]
+            lv327 = R.call_tir(cls.stack2, (lv326, lv325), out_sinfo=R.Tensor((20, 20, 2), dtype="float32"))
+            lv328 = R.call_tir(cls.broadcast_to4, (lv327,), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv329 = R.call_tir(cls.subtract2, (lv328,), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv335 = R.call_tir(cls.tir_sigmoid2, (lv321,), out_sinfo=R.Tensor((1, 3, 20, 20, 41), dtype="float32"))
+            lv336 = R.call_tir(cls.split2, (lv335,), out_sinfo=[R.Tensor((1, 3, 20, 20, 2), dtype="float32"), R.Tensor((1, 3, 20, 20, 2), dtype="float32"), R.Tensor((1, 3, 20, 20, 37), dtype="float32")])
+            lv337: R.Tensor((1, 3, 20, 20, 2), dtype="float32") = lv336[0]
+            lv338: R.Tensor((1, 3, 20, 20, 2), dtype="float32") = lv336[1]
+            lv339: R.Tensor((1, 3, 20, 20, 37), dtype="float32") = lv336[2]
+            lv340 = R.call_tir(cls.multiply7, (lv337,), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv341 = R.call_tir(cls.add18, (lv340, lv329), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv343 = R.call_tir(cls.multiply8, (lv341, R.const(32.0, "float32")), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv344 = R.call_tir(cls.multiply7, (lv338,), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv345 = R.call_tir(cls.power2, (lv344,), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv346 = R.call_tir(cls.multiply9, (lv345, metadata["relax.expr.Constant"][128]), out_sinfo=R.Tensor((1, 3, 20, 20, 2), dtype="float32"))
+            lv347 = R.call_tir(cls.concatenate9, (lv343, lv346, lv339), out_sinfo=R.Tensor((1, 3, 20, 20, 41), dtype="float32"))
+            lv348 = R.call_tir(cls.reshape12, (lv347,), out_sinfo=R.Tensor((1, 1200, 41), dtype="float32"))
+            lv349 = R.call_tir(cls.concatenate10, (lv284, lv316, lv348), out_sinfo=R.Tensor((1, 25200, 41), dtype="float32"))
+            gv: R.Tuple(R.Tensor((1, 25200, 41), dtype="float32")) = (lv349,)
+            R.output(gv)
+        return gv
+
+# Metadata omitted. Use show_meta=True in script() method to show it.
