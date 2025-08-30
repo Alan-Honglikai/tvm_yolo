@@ -59,6 +59,7 @@ def export_to_relax(core_model: torch.nn.Module, input_shape=(1, 3, 640, 640)):
 
     try:
         mod = relax.transform.LegalizeOps()(mod)
+        mod = relax.transform.FoldConstant()(mod)
         print("[INFO] Applied LegalizeOps")
     except Exception as e:
         print(f"[WARN] LegalizeOps skipped: {e}")
@@ -70,6 +71,7 @@ def optimize_relax(mod: tvm.IRModule, enable=False):
         try:
         # pipeline optimize
             from tvm import transform
+            from tvm import tir
             with transform.PassContext(opt_level=3):  # level range from 0 ~ 3
                 # TODO: Optimization Analysis
                 mod = relax.transform.FoldConstant()(mod)
@@ -78,6 +80,9 @@ def optimize_relax(mod: tvm.IRModule, enable=False):
                 mod = relax.transform.FuseTIR()(mod)
                 mod = relax.transform.RewriteCUDAGraph()(mod)
                 mod = relax.transform.OptimizeLayoutTransform()(mod)
+                mod = tir.transform.DefaultGPUSchedule()(mod)  # 給 PrimFunc 自動加 thread binding
+                mod = tir.transform.LowerMatchBuffer()(mod)    # 確保 buffer 綁定正確
+                mod = tir.transform.PlanAndUpdateBufferAllocationLocation()(mod)
             print("[INFO] Applied relax transform")
         except Exception as e:
             print(f"[WARN] relax transform error: {e}")
@@ -89,28 +94,61 @@ def generate_output(mod: tvm.IRModule):
     print("[INFO] Relax IR saved to output.log")
     return
 
-def build_vm(mod: tvm.IRModule, params=None, prefer_cuda=True, cuda_arch=None):
-    def _try_build(target_str, host_target=None):
+def build_vm(mod: tvm.IRModule, params=None, prefer_gpu = 0, cuda_arch=None):
+    from tvm import dlight as dl
+    def _try_build(mod, params=None, target_str="llvm", host_target="llvm", device_type="cpu"):
+        from tvm import dlight as dl
         try:
-            tgt = tvm.target.Target(target_str, host=host_target) if host_target else tvm.target.Target(target_str)
-            ex = relax.build(mod, target=tgt, params=params)
-            dev = tvm.cuda(0) if "cuda" in target_str else tvm.cpu(0)
-            vm = relax.VirtualMachine(ex, dev)
-            return vm, vm["main"], dev, str(tgt)
+            tgt = tvm.target.Target(target_str, host=host_target)
+            with tgt:  # Target context 包含 schedule + build
+                if device_type != "cpu":
+                    gpu_mod = mod.clone() if hasattr(mod, "clone") else tvm.IRModule(mod.functions)
+                    gpu_mod = dl.ApplyDefaultSchedule(dl.gpu.Matmul(), dl.gpu.Fallback())(gpu_mod)
+                    gpu_ex = relax.build(gpu_mod, target=tgt, params=params)
+                    if device_type == "cuda":
+                        gpu_dev = tvm.cuda(0)
+                    elif device_type == "opencl":
+                        gpu_dev = tvm.device("opencl", 0)
+                    gpu_vm = relax.VirtualMachine(gpu_ex, gpu_dev)
+                    return gpu_vm, gpu_vm["main"], gpu_dev, str(tgt)
+                else:
+                    ex = relax.build(mod, target=tgt, params=params)
+                    dev = tvm.cpu(0)
+                    vm = relax.VirtualMachine(ex, dev)
+                    return vm, vm["main"], dev, str(tgt)
+
         except Exception as e:
             return e
 
-    if prefer_cuda:
+    if prefer_gpu == 1:  # cuda
         cuda_target = f"cuda -arch={cuda_arch}" if cuda_arch else "cuda"
-        res = _try_build(cuda_target, host_target=tvm.target.Target("llvm"))
+        res = _try_build(mod, params=params, target_str=cuda_target, host_target=tvm.target.Target("llvm"), device_type="cuda")
         if not isinstance(res, Exception):
             vm, main_func, dev, used = res
             print(f"[INFO] Built with CUDA target: {used}")
             return vm, main_func, dev
         else:
             print(f"[WARN] CUDA build failed: {res}\n[FALLBACK] Trying CPU...")
+    elif prefer_gpu == 2:  # intel_graphics (Intel) with opencl
+        gpu_params = params
+        res = _try_build(mod, params=gpu_params, target_str="opencl -device=intel_gpu", host_target="llvm", device_type="opencl")
+        if not isinstance(res, Exception):
+            vm, main_func, dev, used = res
+            print(f"[INFO] Built with Intel GPU target: {used}")
+            return vm, main_func, dev
+        else:
+            print(f"[WARN] Intel GPU build failed: {res}\n[FALLBACK] Trying CPU...")
+    elif prefer_gpu == 3:  # opencl
+        res = _try_build(mod, "opencl", host_target=tvm.target.Target("llvm"), device_type="opencl")
+        if not isinstance(res, Exception):
+            vm, main_func, dev, used = res
+            print(f"[INFO] Built with OpenCL target: {used}")
+            return vm, main_func, dev
+        else:
+            print(f"[WARN] OpenCL build failed: {res}\n[FALLBACK] Trying CPU...")
 
-    cpu_res = _try_build("llvm")
+    # cpu
+    cpu_res = _try_build(mod, params=params, target_str="llvm", host_target="llvm", device_type="cpu")
     if not isinstance(cpu_res, Exception):
         vm, main_func, dev, used = cpu_res
         print(f"[INFO] Built with CPU (llvm) target: {used}")
@@ -190,7 +228,7 @@ def main():
     mod, params = export_to_relax(core_model, input_shape=(1, 3, args.imgsz, args.imgsz))
     mod = optimize_relax(mod, args.enable_optimizing)
     generate_output(mod)
-    vm, main_func, dev = build_vm(mod, params)
+    vm, main_func, dev = build_vm(mod, params, prefer_gpu=2)
 
     if args.no_run:  # 簡化保留原行為
         print("[INFO] Skipped inference (--no-run)")
@@ -225,6 +263,8 @@ def main():
     # -----------------------------
     # Fix 2: 處理 TVM Relax VM output（簡化，保證展開 NDArray）
     # -----------------------------
+    # 將輸入 tensor 放到 VM 的 device
+    input_tensor = tvm.nd.array(input_tensor.numpy(), dev)
     res = main_func(input_tensor)
 
     # 如果是 list/tuple，取第一個元素
