@@ -3,7 +3,14 @@
 ```
 https://tvm.apache.org/docs/install/from_source.html#install-from-source
 ```
-
+## Download yolov5
+```
+# Clone YOLOv5
+git clone https://github.com/ultralytics/yolov5
+cd yolov5
+# Install required packages
+pip install -r requirements.txt
+```
 ## Execution
 - Example: 
 ```
