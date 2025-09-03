@@ -66,23 +66,32 @@ def export_to_relax(core_model: torch.nn.Module, input_shape=(1, 3, 640, 640)):
 
     return mod, params
 
-def optimize_relax(mod: tvm.IRModule, enable=False):
+def optimize_relax(mod: tvm.IRModule, enable=False, prefer_gpu=0):
     if enable:
         try:
         # pipeline optimize
             from tvm import transform
             from tvm import tir
+            if prefer_gpu == 1:
+                tgt = tvm.target.Target("cuda")
+            elif prefer_gpu == 2:
+                tgt = tvm.target.Target("opencl")
+            else:
+                tgt = tvm.target.Target("llvm")
             with transform.PassContext(opt_level=3):  # level range from 0 ~ 3
                 # TODO: Optimization Analysis
-                mod = relax.transform.FoldConstant()(mod)
-                mod = relax.transform.DeadCodeElimination()(mod)
-                mod = relax.transform.FuseOps(fuse_opt_level=1)(mod)
-                mod = relax.transform.FuseTIR()(mod)
-                mod = relax.transform.RewriteCUDAGraph()(mod)
-                mod = relax.transform.OptimizeLayoutTransform()(mod)
-                mod = tir.transform.DefaultGPUSchedule()(mod)  # 給 PrimFunc 自動加 thread binding
-                mod = tir.transform.LowerMatchBuffer()(mod)    # 確保 buffer 綁定正確
-                mod = tir.transform.PlanAndUpdateBufferAllocationLocation()(mod)
+                with tgt:
+                    # mod = relax.transform.FoldConstant()(mod)
+                    # mod = relax.transform.DeadCodeElimination()(mod)
+                    # mod = relax.transform.FuseOps(fuse_opt_level=1)(mod)
+                    # mod = relax.transform.FuseTIR()(mod)
+                    mod = relax.get_pipeline("zero")(mod)
+                    mod = relax.transform.RewriteCUDAGraph()(mod)
+                    mod = relax.transform.OptimizeLayoutTransform()(mod)
+                    if prefer_gpu>0:
+                        mod = tir.transform.DefaultGPUSchedule()(mod)  # 給 PrimFunc 自動加 thread binding
+                    # mod = tir.transform.LowerMatchBuffer()(mod)    # 確保 buffer 綁定正確
+                    # mod = tir.transform.PlanAndUpdateBufferAllocationLocation()(mod)
             print("[INFO] Applied relax transform")
         except Exception as e:
             print(f"[WARN] relax transform error: {e}")
@@ -146,6 +155,8 @@ def build_vm(mod: tvm.IRModule, params=None, prefer_gpu = 0, cuda_arch=None):
             return vm, main_func, dev
         else:
             print(f"[WARN] OpenCL build failed: {res}\n[FALLBACK] Trying CPU...")
+    else:
+        print("[WARN] GPU is not supported \n[FALLBACK] Trying CPU...")
 
     # cpu
     cpu_res = _try_build(mod, params=params, target_str="llvm", host_target="llvm", device_type="cpu")
@@ -222,13 +233,20 @@ def main():
     parser.add_argument("--imgsz", type=int, default=640)
     parser.add_argument("--no-run", action="store_true")
     parser.add_argument("--enable_optimizing", type=bool, default=False)
+    parser.add_argument("--prefer_gpu", type=int, default=0)
     args = parser.parse_args()
 
     core_model = load_yolov5_core_model(args.project_dir)
     mod, params = export_to_relax(core_model, input_shape=(1, 3, args.imgsz, args.imgsz))
-    mod = optimize_relax(mod, args.enable_optimizing)
+    mod = optimize_relax(mod, args.enable_optimizing, args.prefer_gpu)
     generate_output(mod)
-    vm, main_func, dev = build_vm(mod, params, prefer_gpu=2)
+    vm, main_func, dev = build_vm(mod, params, args.prefer_gpu)
+
+    # 檢查是否使用 GPU
+    if dev.device_type == tvm.runtime.device("opencl").device_type:
+        print(f"[INFO] Running on GPU, device_id={dev.device_id}")
+    else:
+        print(f"[INFO] Running on CPU, device_type={dev.device_type}, device_id={dev.device_id}")
 
     if args.no_run:  # 簡化保留原行為
         print("[INFO] Skipped inference (--no-run)")
